@@ -1,7 +1,9 @@
 // CODE EXPLAINED channel
 
 // Select the Elements
+var meni = 0;
 const clear = document.querySelector(".clear");
+const menu = document.querySelector(".menu");
 const dateElement = document.getElementById("date");
 const list = document.getElementById("list");
 const input = document.getElementById("input");
@@ -39,6 +41,74 @@ function loadList(array){
 clear.addEventListener("click", function(){
     localStorage.clear();
     location.reload();
+});
+
+// show menu
+var menuOptions = document.getElementById('menuoptions');
+var mspanD = document.querySelector('.mspanD');
+var mspanA = document.querySelector('.mspanA');
+var mspanO = document.querySelector('.mspanO');
+menu.addEventListener("click", function(){
+    meni++;
+            if(meni %2 == 0){
+                menu.style.backgroundImage= 'url("./img/menu_black.png")';
+                menuOptions.style.opacity= '0%';
+                menu.style.transform= 'rotate(0)';
+                menuOptions.style.left= '0%';
+                mspanD.style.backgroundColor= 'rgb(0, 68, 253)';
+                mspanA.style.backgroundColor= 'rgb(0, 68, 253)';
+                mspanO.style.backgroundColor= 'rgb(0, 68, 253)';
+
+                mspanD.style.margin= '0px';
+                mspanA.style.margin= '0px';
+                mspanO.style.margin= '0px';
+
+            }else{
+                menu.style.backgroundImage= "url('./img/menu_white.png')";
+                menuOptions.style.opacity= '100%';
+                menu.style.transform= 'rotate(-90deg)';
+                menuOptions.style.left= '20%';
+                mspanD.style.backgroundColor= '#ff59cc';
+                mspanA.style.backgroundColor= '#4a92ff';
+                mspanO.style.backgroundColor= '#ff8100';
+
+                mspanD.style.margin= '4px';
+                mspanA.style.margin= '4px';
+                mspanO.style.margin= '4px';
+
+                mspanD.addEventListener("mouseover" , function(){
+                    mspanD.style.backgroundColor= 'black';
+                });
+                mspanD.addEventListener("mouseleave" , function(){
+                    mspanD.style.backgroundColor= '#ff59cc';
+                });
+
+                mspanD.addEventListener("click" , function(){
+                    window.location.href='../Dashboard.jsp';
+                });
+
+                mspanA.addEventListener("mouseover" , function(){
+                    mspanA.style.backgroundColor= 'black';
+                });
+                mspanA.addEventListener("mouseleave" , function(){
+                    mspanA.style.backgroundColor= '#4a92ff';
+                });
+
+                mspanA.addEventListener("click" , function(){
+                    window.location.href='http://obekaspro.eb2a.com';
+                });
+
+                mspanO.addEventListener("mouseover" , function(){
+                    mspanO.style.backgroundColor= 'black';
+                });
+                mspanO.addEventListener("mouseleave" , function(){
+                    mspanO.style.backgroundColor= '#ff8100';
+                });
+
+                mspanO.addEventListener("click" , function(){
+                    window.location.href='../index.jsp';
+                });
+            }
 });
 
 // Show todays date
@@ -92,6 +162,10 @@ document.addEventListener("keyup",function(even){
         input.value = "";
     }
 });
+
+
+    
+
 
 
 // complete to do

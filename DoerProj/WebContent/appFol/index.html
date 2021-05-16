@@ -3,16 +3,51 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JavaScript - To Do List</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium+Web">
     <link rel="stylesheet" href="css/font-awesome.css">
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <div class="container">
+    <div class="nav-panels">
+        <i id="D" onclick="window.location.href='../Dashboard.jsp';" onmouseover="
+        document.getElementById('D').innerText = 'Dashboard';" onmouseleave="
+        document.getElementById('D').innerText = 'D';
+        document.getElementById('D').style.transform = 'translate3d(20px, 200px, 0px)';"
+        >D</i>
+        <i id="A" onclick="window.location.href='http://obekaspro.eb2a.com';" onmouseover="
+        document.getElementById('A').innerText = 'About us';" onmouseleave="
+        document.getElementById('A').innerText = 'A';
+        document.getElementById('A').style.transform = 'translate3d(50px, 150px, 0px)';"
+        >A</i>
+        <i id="O" onclick="window.location.href='../index.jsp';" onmouseover="
+        document.getElementById('O').innerText = 'Logout';" onmouseleave="
+        document.getElementById('O').innerText = 'O';
+        document.getElementById('O').style.transform = 'translate3d(20px, 90px, 0px)';"
+        >O</i>
+    </div>
+        <i id="navLogo" class="idea-nav-logo" onmouseover="
+        document.getElementById('D').style.transform = 'translateX(10px)';
+        document.getElementById('A').style.transform = 'translateY(10px)';
+        document.getElementById('O').style.transform = 'translate3d(20px, 20px, 0px)';" ></i>
+    <div class="container" onmouseover="
+        document.getElementById('A').style.transform = 'translate3d(50px, 150px, 0px)';
+        document.getElementById('D').style.transform = 'translate3d(20px, 200px, 0px)';
+        document.getElementById('O').style.transform = 'translate3d(20px, 90px, 0px)';
+    ">
         <div class="header">
             <div class="clear">
                 <i class="fa fa-refresh"></i>
+            </div>
+            <div class="menu" onclick="
+            
+            ">
+            </div>
+            <div id="menuoptions" class="menu-options">
+                <span id="d" class="mspanD">&nbsp Dashboard &nbsp</span>
+                <span id="a" class="mspanA">&nbsp About us &nbsp</span>
+                <span id="o" class="mspanO">&nbsp Logout &nbsp</span>
             </div>
             <div id="date"></div>
         </div>
@@ -27,8 +62,27 @@
             </ul>
         </div>
         <div class="add-to-do">
-            <i class="fa fa-plus-circle"></i>
-            <input type="text" id="input" placeholder="Add a to-do">
+            <i id="addBtn" class="fa fa-plus-circle" onclick="
+            const toDo = input.value;
+                
+                // if the input isn't empty
+                if(toDo){
+                    addToDo(toDo, id, false, false);
+                    
+                    LIST.push({
+                        name : toDo,
+                        id : id,
+                        done : false,
+                        trash : false
+                    });
+                    
+                    // add item to localstorage ( this code must be added where the LIST array is updated)
+                    localStorage.setItem('TODO', JSON.stringify(LIST));
+                    
+                    id++;
+                }
+                input.value = '';"></i>
+            <input type="text" id="input" placeholder="Add task">
         </div>
     </div>
     <script src="js/app.js"></script>

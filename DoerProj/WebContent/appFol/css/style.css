@@ -1,9 +1,98 @@
+/*@CHARSET "ISO-8859-1";*/
+*{
+    transition: 1s;
+}
 /* ------------ youtube.com/CodeExplained ------------ */
 body{
+    position: relative;
     padding: 0;
     margin: 0;
-    background-color: rgba(177 80 3 / 40%);
+    background-image: linear-gradient(to left , #e65282 , #000000);
     font-family: 'Titillium Web', sans-serif;
+}
+
+/* ------------ idea nav logo -------- */
+.idea-nav-logo{
+    position: absolute;
+    background-image: url("../img/idealogo.png");
+    background-size: 100% 100%;
+    width: 150px;
+    height: 170px;
+    bottom: 12%;
+    left: 3%;
+    cursor: pointer;
+    transition: 0.3s;
+}
+.idea-nav-logo:hover{
+    width: 170px;
+    height: 190px;
+    transition: 0.3s;
+}
+
+.nav-panels{
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    bottom: 45%;
+    left: 5%;
+    font-family: cursive;
+}
+
+#D{
+    background-image: linear-gradient(to bottom , #ff59cc , #000000);
+    color: gainsboro;
+    padding: 3px;
+    border-radius: 17px;
+    width: 30px;
+    height: 30px;
+    margin: 2px;
+    /*transform: translate3d(10px, -20px, 0px);*/
+    transform: translate3d(20px, 200px, 0px);
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+#A{
+    background-image: linear-gradient(to bottom , #4a92ff , #000000);
+    color: gainsboro;
+    padding: 3px;
+    border-radius: 17px;
+    width: 30px;
+    height: 30px;
+    margin: 2px;
+    /*translate3d(-40px, 10px, 0px);*/
+    transform: translate3d(50px, 150px, 0px);
+    cursor: pointer;
+    transition: 0.3s;
+}
+#O{
+    background-image: linear-gradient(to bottom , #ff8100 , #000000);
+    color: gainsboro;
+    padding: 3px;
+    border-radius: 17px;
+    width: 30px;
+    height: 30px;
+    margin: 2px;
+    /*transform: translate3d(50px, 0px, 0px);*/
+    transform: translate3d(20px, 90px, 0px);
+    cursor: pointer;
+    transition: 0.3s;
+}
+#D:hover{
+    width: 100px;
+    color: aqua;
+    transition: 0.3s;
+}
+#A:hover{
+    width: 100px;
+    color: aqua;
+    transition: 0.3s;
+}
+#O:hover{
+    width: 100px;
+    color: aqua;
+    transition: 0.3s;
 }
 
 /* ------------ container ------------ */
@@ -33,12 +122,56 @@ body{
 .clear i{
     font-size: 30px;
     color: #FFF;
+    transition: 0.3s;
 }
 .clear i:hover{
     cursor: pointer;
     text-shadow: 1px 3px 5px #000;
     transform: rotate(45deg);
+    transition: 0.3s;
 }
+
+.menu{
+    background-image: url('../img/menu_black.png');
+    background-size: 100% 100%;
+    width : 30px;
+    height: 30px;
+    position: absolute;
+    left:20px;
+    top: 20px;
+    background-color: #e65282;
+    border-radius: 5px;
+    transition: 0.3s;
+}
+.menu-options{
+    text-align: start;
+    transition: 0.8s;
+    left:0px;
+    top: 60px;
+    position: absolute;
+    opacity: 0%;
+    cursor: default;
+
+    
+}
+.menu-options span{
+    transition: 0.8s;
+    background-color: rgb(0, 68, 253);
+    color: white;
+    padding: 2px;
+    margin: 0px;
+    border-radius: 10px;
+    cursor: default;
+    font-family: cursive;
+    
+}
+.menu-options span:hover{
+    transition: 0.5s;
+    color: aqua;
+    
+    
+}
+
 #date{
     position: absolute;
     bottom: 10px;
@@ -113,7 +246,7 @@ body{
 /* ------------ add item ------------ */
 .add-to-do{
     position: relative;
-    width: 700px;
+    /*width: 700px;*/
     height:40px;
     background-color: #FFF;
     padding: 10px;
@@ -156,7 +289,84 @@ body{
     font-size: 20px;
 }
 
+#addBtn{
+    cursor: pointer;
 
+}
+
+@media only screen and (max-width: 1108px) {
+    
+    *{
+        
+        transition: 1s;
+    }
+
+    .nav-panels{
+        display: none;
+    }
+
+    body{
+        overflow: hidden;
+        
+    }
+    .idea-nav-logo{
+        width: 100px;
+        height: 120px;
+        bottom: 12%;
+        display: none;
+       
+    }
+
+    .container{
+        padding: 0px 0px 0px 0px;
+        width: 98%;
+        height: 100%;
+        margin: 5px 1% -100% 1%;
+    }
+
+    .header{
+        width: 100%;
+    }
+    .content{
+        width: 100%;
+    }
+    .item{
+        width: 100%;
+    }
+    .add-to-do{
+        padding: 2%;
+        
+        
+    }
+
+
+
+
+
+
+
+
+
+
+
+}
+@media only screen and (min-width: 610px) and (max-width: 1108px) {
+.nav-panels{
+    display: none;
+}
+
+.container{
+    margin: 5px 1% 0% 1%;
+}
+
+
+
+
+
+
+
+
+}
 
 
 
